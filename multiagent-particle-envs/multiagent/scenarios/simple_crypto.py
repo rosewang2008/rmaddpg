@@ -153,17 +153,17 @@ class Scenario(BaseScenario):
                 print('speaker')
                 print(agent.state.c)
                 print(np.concatenate([goal_color] + [key] + [confer] + [np.random.randn(1)]))
-            return np.concatenate([goal_color] + [key])
+            return np.array([np.concatenate([goal_color] + [key])])
         # listener
         if not agent.speaker and not agent.adversary:
             if prnt:
                 print('listener')
                 print(agent.state.c)
                 print(np.concatenate([key] + comm + [confer]))
-            return np.concatenate([key] + comm)
+            return np.array([np.concatenate([key] + comm)])
         if not agent.speaker and agent.adversary:
             if prnt:
                 print('adversary')
                 print(agent.state.c)
                 print(np.concatenate(comm + [confer]))
-            return np.concatenate(comm)
+            return np.array([np.concatenate(comm)])
